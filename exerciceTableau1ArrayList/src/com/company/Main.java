@@ -34,6 +34,7 @@ public class Main {
                 if (liste.get(i).equals(reponse)) {
                     trouve = true;
                     System.out.println("Bravo !");
+                    liste.remove(i);
                 }
             }
         } while (trouve = false);
