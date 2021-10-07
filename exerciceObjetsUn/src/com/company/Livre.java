@@ -3,14 +3,26 @@ package com.company;
 import java.util.ArrayList;
 
 public class Livre {
-    final String POLICIER = "policier";
-    final String ROMAN = "roman";
-    final String JUNIOR = "junior";
-    final String SF = "science-fiction";
+    final static String POLICIER = "policier";
+    final static String ROMAN = "roman";
+    final static String JUNIOR = "junior";
+    final static String SF = "science-fiction";
     String titre, nom, prenom, categorie;
     int isbn;
+    private ManagerInterface manager;
 
+    public Livre(ManagerInterface manager) {
+        this.manager = manager;
+        this.titre = this.manager.demanderTitre();
+        this.nom = this.manager.demanderNom();
+        this.prenom = this.manager.demanderPrenom();
+        this.categorie = this.manager.demanderCategorie();
+        this.manager.afficher(titre, nom, prenom, categorie);
+    }
 
+    public ManagerInterface getManager() {
+        return manager;
+    }
 
     public String getTitre() {
         return titre;
