@@ -1,6 +1,6 @@
 package com.company;
 
-public interface ManagerInterface {
+public interface IoManagerInterface {
     public String demanderTitre();
     public String demanderNom();
     public String demanderPrenom();

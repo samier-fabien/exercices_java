@@ -2,7 +2,7 @@ package com.company;
 
 import java.util.Scanner;
 
-public class Manager implements ManagerInterface {
+public class IoManager implements IoManagerInterface {
     private Scanner scanner = new Scanner(System.in);
 
     @Override

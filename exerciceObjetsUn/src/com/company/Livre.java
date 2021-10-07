@@ -1,27 +1,27 @@
 package com.company;
 
-import java.util.ArrayList;
-
 public class Livre {
     final static String POLICIER = "policier";
     final static String ROMAN = "roman";
     final static String JUNIOR = "junior";
     final static String SF = "science-fiction";
     String titre, nom, prenom, categorie;
-    int isbn;
-    private ManagerInterface manager;
+    String isbn = "9782123456803";
+    private IoManagerInterface ioManager;
+    private IsbnInterface isbnManager;
 
-    public Livre(ManagerInterface manager) {
-        this.manager = manager;
-        this.titre = this.manager.demanderTitre();
-        this.nom = this.manager.demanderNom();
-        this.prenom = this.manager.demanderPrenom();
-        this.categorie = this.manager.demanderCategorie();
-        this.manager.afficher(titre, nom, prenom, categorie);
+    public Livre(IoManagerInterface ioManager, IsbnInterface isbnManager) {
+        this.ioManager = ioManager;
+        this.isbnManager = isbnManager;
+        this.titre = this.ioManager.demanderTitre();
+        this.nom = this.ioManager.demanderNom();
+        this.prenom = this.ioManager.demanderPrenom();
+        this.categorie = this.ioManager.demanderCategorie();
+        this.ioManager.afficher(titre, nom, prenom, categorie);
     }
 
-    public ManagerInterface getManager() {
-        return manager;
+    public IoManagerInterface getManager() {
+        return ioManager;
     }
 
     public String getTitre() {
@@ -56,11 +56,11 @@ public class Livre {
         this.categorie = categorie;
     }
 
-    public int getIsbn() {
+    public String getIsbn() {
         return isbn;
     }
 
-    public void setIsbn(int isbn) {
+    public void setIsbn(String isbn) {
         this.isbn = isbn;
     }
 }
